@@ -1,0 +1,195 @@
+/* Reset and base styles */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+ 
+  
+  body {
+
+   
+    
+      
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center; /* 👈 this forces right side */
+  
+    
+    
+
+    font-family: 'Manrope', sans-serif;
+    background-color: #a3dd7e;
+    color: #1a1a1a;
+    line-height: 1.4;
+    padding: 10px;
+  }
+  
+  /* Header and Navigation */
+  header {
+    background-color: #0b3d2e;
+    color: white;
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid #017c2c;
+  }
+  
+  header h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 3px;
+    text-align:center;
+    border: 100px white;
+    padding: 3px 3px;
+
+  }
+  
+  nav ul li a:hover {
+    background-color: #f1f1f1;
+    color: #000000;
+
+
+  }
+  
+  /* Content Styling */
+  h1, h2, h3 {
+    color: #0b3d2e;
+    margin-bottom: 10px;
+  }
+  
+  h1{
+    color: white;
+    margin-bottom: -10px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  
+  ul, ol {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  
+  footer {
+    margin-top: 60px;
+    padding: 20px;
+    text-align: center;
+    background-color: #0b3d2e;
+    color: #fff;
+  }
+  
+  .top-text
+  {
+    margin-top: 30px;
+  }
+  
+  .para-one
+  {
+    margin-top: -10px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #69926c;
+    
+  }
+
+  main
+  {
+    margin-left: 8px;
+    font-family: sans-serif;
+  }
+
+  .cta-button a {
+    display: inline-block;
+    background-color: #0b3d2e;
+    color: white;
+    padding: 15px 50px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background-color 0.1s ease;
+    
+  
+  }
+  
+  .cta-button a:hover {
+    background-color: #000000;
+  }
+  @media (max-width: 600px) {
+    nav ul {
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      padding: 10px 0;
+    }
+  
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    header h1 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+    nav ul li a {
+      font-size: 14px;
+    }
+  }
+  
+
+  .progress-check a {
+    display: inline-block;
+    background-color: #0b3d2e;
+    color: white;
+    padding: 5px 30px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background-color 0.1s ease;
+    
+  
+  }
+  
+  .progress-check a:hover {
+    background-color: #000000;
+  }
+
+  a
+  {
+    color: black;
+    text-decoration: none;
+  }
+  .tariqa
+  {
+    margin-top: -10px;
+    color: #31864f;
+    line-height: 25px;
+  }
+  
+  .image-dis
+  
+  {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 2px 20px #ffffff;
+  border-radius: 70px;
+  background-color: #000000;
+  margin-right: 15px;
+  }
