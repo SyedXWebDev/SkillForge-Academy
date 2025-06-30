@@ -1,195 +1,209 @@
 /* Reset and base styles */
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
- 
-  
-  body {
+}
 
-   
-    
-      
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center; /* 👈 this forces right side */
-  
-    
-    
+body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #6ab04c 0%, #badc58 100%);
+    color: #2d3436;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
-    font-family: 'Manrope', sans-serif;
-    background-color: #a3dd7e;
-    color: #1a1a1a;
-    line-height: 1.4;
-    padding: 10px;
-  }
-  
-  /* Header and Navigation */
-  header {
-    background-color: #0b3d2e;
-    color: white;
-    padding: 12px 18px;
+/* Header and Navigation */
+header {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: #ffffff;
+    padding: 15px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 5px solid #017c2c;
-  }
-  
-  header h1 {
-    font-size: 1.2rem;
+    border-bottom: 4px solid #00b894;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 1.6rem;
     font-weight: 700;
-  }
-  
-  nav ul {
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
     display: flex;
     list-style: none;
-    gap: 10px;
-  }
-  
-  nav ul li a {
+    gap: 15px;
+}
+
+nav ul li a {
     text-decoration: none;
     color: #ffffff;
     font-weight: 500;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    border-radius: 3px;
-    text-align:center;
-    border: 100px white;
-    padding: 3px 3px;
-
-  }
-  
-  nav ul li a:hover {
-    background-color: #f1f1f1;
-    color: #000000;
-
-
-  }
-  
-  /* Content Styling */
-  h1, h2, h3 {
-    color: #0b3d2e;
-    margin-bottom: 10px;
-  }
-  
-  h1{
-    color: white;
-    margin-bottom: -10px;
-  }
-  section {
-    margin-bottom: 40px;
-  }
-  
-  ul, ol {
-    padding-left: 20px;
-    margin-top: 10px;
-  }
-  
-  footer {
-    margin-top: 60px;
-    padding: 20px;
+    padding: 8px 16px;
+    border-radius: 6px;
     text-align: center;
-    background-color: #0b3d2e;
-    color: #fff;
-  }
-  
-  .top-text
-  {
-    margin-top: 30px;
-  }
-  
-  .para-one
-  {
-    margin-top: -10px;
-    font-weight: bolder;
-    font-size: 20px;
-    color: #69926c;
-    
-  }
+    transition: all 0.3s ease;
+}
 
-  main
-  {
-    margin-left: 8px;
-    font-family: sans-serif;
-  }
+nav ul li a:hover {
+    background: #00b894;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
 
-  .cta-button a {
+/* Content Styling */
+h1, h2, h3 {
+    color: #1e3c72;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+section {
+    margin-bottom: 50px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+ul, ol {
+    padding-left: 25px;
+    margin-top: 15px;
+}
+
+footer {
+    margin-top: 80px;
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.top-text {
+    margin-top: 40px;
+}
+
+.para-one {
+    margin-top: -5px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #2a5298;
+}
+
+main {
+    margin-left: 15px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.cta-button a, .progress-check a {
     display: inline-block;
-    background-color: #0b3d2e;
-    color: white;
-    padding: 15px 50px;
-    border-radius: 6px;
-    font-size: 20px;
-    font-weight: 400;
+    background: linear-gradient(to right, #00b894, #55efc4);
+    color: #ffffff;
+    padding: 12px 40px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
     text-decoration: none;
-    transition: background-color 0.1s ease;
-    
-  
-  }
-  
-  .cta-button a:hover {
-    background-color: #000000;
-  }
-  @media (max-width: 600px) {
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button a:hover, .progress-check a:hover {
+    background: linear-gradient(to right, #55efc4, #00b894);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+a {
+    color: #2a5298;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #00b894;
+}
+
+.tariqa {
+    margin-top: -5px;
+    color: #00b894;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.image-dis {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom, #ffffff, #dfe6e9);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    margin: 15px;
+    padding: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.image-dis:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
     nav ul {
-      flex-direction: column;
-      gap: 8px;
-      align-items: flex-start;
-      padding: 10px 0;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 15px 0;
     }
-  
+
     header {
-      flex-direction: column;
-      align-items: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
     }
-  
+
     header h1 {
-      font-size: 18px;
-      margin-bottom: 10px;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
     }
-  
+
     nav ul li a {
-      font-size: 14px;
+        font-size: 0.9rem;
+        padding: 6px 12px;
     }
-  }
-  
 
-  .progress-check a {
-    display: inline-block;
-    background-color: #0b3d2e;
-    color: white;
-    padding: 5px 30px;
-    border-radius: 6px;
-    font-size: 20px;
-    font-weight: 400;
-    text-decoration: none;
-    transition: background-color 0.1s ease;
-    
-  
-  }
-  
-  .progress-check a:hover {
-    background-color: #000000;
-  }
+    section {
+        padding: 15px;
+    }
 
-  a
-  {
-    color: black;
-    text-decoration: none;
-  }
-  .tariqa
-  {
-    margin-top: -10px;
-    color: #31864f;
-    line-height: 25px;
-  }
-  
-  .image-dis
-  
-  {
-  display: flex;
-  justify-content: center;
-  box-shadow: 0px 2px 20px #ffffff;
-  border-radius: 70px;
-  background-color: #000000;
-  margin-right: 15px;
-  }
+    .cta-button a, .progress-check a {
+        padding: 10px 30px;
+        font-size: 1rem;
+    }
+
+    .image-dis {
+        margin: 10px;
+        padding: 10px;
+    }
+}
