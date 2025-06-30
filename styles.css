@@ -6,204 +6,218 @@
 }
 
 body {
-    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #6ab04c 0%, #badc58 100%);
-    color: #2d3436;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b9fbc0 100%);
+    color: #1a1a1a;
     line-height: 1.6;
-    padding: 20px;
     min-height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    padding: 20px;
 }
 
 /* Header and Navigation */
 header {
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-    color: #ffffff;
-    padding: 15px 25px;
+    background: #1a3c34;
+    color: white;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 4px solid #00b894;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.025em;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 15px;
+    gap: 1.5rem;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #ffffff;
+    color: #e0e0e0;
     font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 6px;
-    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     transition: all 0.3s ease;
 }
 
 nav ul li a:hover {
-    background: #00b894;
-    color: #ffffff;
+    background-color: #2e7d32;
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Content Styling */
 h1, h2, h3 {
-    color: #1e3c72;
-    margin-bottom: 15px;
-    font-weight: 600;
+    color: #1a3c34;
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 h1 {
-    color: #ffffff;
-    margin-bottom: 0;
+    font-size: 2.5rem;
+    color: #1a3c34;
+}
+
+h2 {
+    font-size: 1.8rem;
 }
 
 section {
-    margin-bottom: 50px;
-    padding: 25px;
+    margin-bottom: 3rem;
+    padding: 2rem;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-section:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 ul, ol {
-    padding-left: 25px;
-    margin-top: 15px;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
 }
 
 footer {
-    margin-top: 80px;
-    padding: 30px;
+    margin-top: 4rem;
+    padding: 2rem;
     text-align: center;
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-    color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+    background: #1a3c34;
+    color: white;
+    border-radius: 12px 12px 0 0;
 }
 
 .top-text {
-    margin-top: 40px;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: #2e7d32;
 }
 
 .para-one {
-    margin-top: -5px;
     font-weight: 600;
-    font-size: 1.3rem;
-    color: #2a5298;
+    font-size: 1.25rem;
+    color: #2e7d32;
+    margin-top: 0.5rem;
 }
 
 main {
-    margin-left: 15px;
-    font-family: 'Manrope', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
+/* Buttons */
 .cta-button a, .progress-check a {
     display: inline-block;
-    background: linear-gradient(to right, #00b894, #55efc4);
-    color: #ffffff;
-    padding: 12px 40px;
+    background: #2e7d32;
+    color: white;
+    padding: 0.75rem 2rem;
     border-radius: 8px;
     font-size: 1.1rem;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button a:hover, .progress-check a:hover {
-    background: linear-gradient(to right, #55efc4, #00b894);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background: #1a3c34;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 a {
-    color: #2a5298;
+    color: #2e7d32;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #00b894;
+    color: #1a3c34;
 }
 
 .tariqa {
-    margin-top: -5px;
-    color: #00b894;
+    color: #2e7d32;
     line-height: 1.8;
-    font-weight: 500;
+    font-size: 1.1rem;
 }
 
 .image-dis {
     display: flex;
     justify-content: center;
-    background: linear-gradient(to bottom, #ffffff, #dfe6e9);
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    margin: 15px;
-    padding: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.image-dis:hover {
-    transform: scale(1.02);
+    border-radius: 16px;
+    background: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-        padding: 15px 0;
-    }
-
+@media (max-width: 768px) {
     header {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 15px;
+        padding: 1rem;
     }
 
     header h1 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    .cta-button a, .progress-check a {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.1rem;
     }
 
     nav ul li a {
         font-size: 0.9rem;
-        padding: 6px 12px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
     }
 
     section {
-        padding: 15px;
-    }
-
-    .cta-button a, .progress-check a {
-        padding: 10px 30px;
-        font-size: 1rem;
-    }
-
-    .image-dis {
-        margin: 10px;
-        padding: 10px;
+        padding: 0.75rem;
     }
 }
