@@ -6,24 +6,24 @@
 
 body {
   font-family: 'Manrope', sans-serif;
-  background: linear-gradient(135deg, #e0f7fa, #e6ffe6);
-  color: #1f1f1f;
+  background: linear-gradient(135deg, #1b2e2b, #2a3d32);
+  color: #e0f2e9;
   line-height: 1.6;
   padding: 20px;
   min-height: 100vh;
 }
 
-/* Header and Navigation */
+/* Header */
 header {
-  background: linear-gradient(90deg, #123c69, #3fa796);
+  background: linear-gradient(90deg, #1e5128, #4e9f3d);
   color: #ffffff;
   padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 4px solid #ffffff33;
+  border-bottom: 4px solid #81c78444;
   border-radius: 0 0 12px 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 header h1 {
@@ -39,31 +39,29 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: #ffffff;
+  color: #e0f2e9;
   font-weight: 500;
   padding: 8px 14px;
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
-  background: transparent;
 }
 
 nav ul li a:hover {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(6px);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
 }
 
-/* Content Styling */
+/* Headings */
 h1, h2, h3 {
-  color: #123c69;
+  color: #a5d6a7;
   margin-bottom: 14px;
 }
 
 h1 {
   color: #ffffff;
-  margin-bottom: -10px;
 }
 
+/* Sections */
 section {
   margin-bottom: 40px;
 }
@@ -73,17 +71,18 @@ ul, ol {
   margin-top: 12px;
 }
 
+/* Footer */
 footer {
   margin-top: 60px;
   padding: 25px;
   text-align: center;
-  background: linear-gradient(90deg, #123c69, #3fa796);
-  color: #fff;
+  background: linear-gradient(90deg, #1e5128, #4e9f3d);
+  color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Paragraph and Text Blocks */
+/* Paragraphs */
 .top-text {
   margin-top: 30px;
 }
@@ -92,12 +91,12 @@ footer {
   margin-top: -10px;
   font-weight: bold;
   font-size: 20px;
-  color: #31864f;
+  color: #81c784;
 }
 
 .tariqa {
   margin-top: -10px;
-  color: #2a6f51;
+  color: #aed581;
   line-height: 1.6;
 }
 
@@ -106,11 +105,11 @@ main {
   font-family: 'Manrope', sans-serif;
 }
 
-/* Buttons (CTA and Progress) */
+/* Buttons */
 .cta-button a,
 .progress-check a {
   display: inline-block;
-  background: linear-gradient(to right, #3fa796, #1c6e8c);
+  background: linear-gradient(to right, #66bb6a, #388e3c);
   color: white;
   padding: 14px 40px;
   border-radius: 8px;
@@ -118,14 +117,14 @@ main {
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button a:hover,
 .progress-check a:hover {
-  background: linear-gradient(to right, #1c6e8c, #3fa796);
+  background: linear-gradient(to right, #388e3c, #2e7d32);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
 /* Image Container */
@@ -133,9 +132,9 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   border-radius: 16px;
   overflow: hidden;
   padding: 20px;
@@ -145,11 +144,15 @@ main {
 
 /* Links */
 a {
-  color: #1a1a1a;
+  color: #a5d6a7;
   text-decoration: none;
 }
 
-/* Responsive Layout */
+a:hover {
+  color: #ffffff;
+}
+
+/* Responsive */
 @media (max-width: 600px) {
   nav ul {
     flex-direction: column;
