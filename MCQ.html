@@ -1,0 +1,351 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs: Sea Journey Story</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: linear-gradient(to bottom right, #b3e5fc, #0288d1);
+            color: #1a237e;
+        }
+        h1 {
+            text-align: center;
+            color: #0d47a1;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        .question {
+            background-color: #e1f5fe;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 2px solid #0277bd;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+        .question p {
+            margin: 0 0 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #01579b;
+        }
+        .options label {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            background-color: #ffffff;
+            transition: background-color 0.2s ease;
+        }
+        .options label:hover:not(.correct, .incorrect) {
+            background-color: #bbdefb;
+        }
+        .correct {
+            background-color: #a5d6a7 !important;
+            color: #1b5e20;
+            font-weight: bold;
+        }
+        .incorrect {
+            background-color: #ef9a9a !important;
+            color: #b71c1c;
+            font-weight: bold;
+        }
+        button {
+            display: block;
+            margin: 25px auto;
+            padding: 12px 40px;
+            background-color: #0288d1;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        button:hover:not(:disabled) {
+            background-color: #01579b;
+            transform: scale(1.05);
+        }
+        button:disabled {
+            background-color: #90a4ae;
+            cursor: not-allowed;
+        }
+        #result {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #ffecb3;
+            border: 2px solid #f57c00;
+            border-radius: 8px;
+            color: #e65100;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>MCQs: Sea Journey Story</h1>
+    <form id="quizForm">
+        <div class="question">
+            <p>1. Where was the narrator born?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="a"> Germany</label>
+                <label><input type="radio" name="q1" value="b"> England</label>
+                <label><input type="radio" name="q1" value="c"> France</label>
+                <label><input type="radio" name="q1" value="d"> Spain</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>2. What was the narrator's father's nationality?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="a"> English</label>
+                <label><input type="radio" name="q2" value="b"> German</label>
+                <label><input type="radio" name="q2" value="c"> French</label>
+                <label><input type="radio" name="q2" value="d"> Italian</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>3. How many siblings did the narrator have?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="a"> One</label>
+                <label><input type="radio" name="q3" value="b"> Two</label>
+                <label><input type="radio" name="q3" value="c"> Three</label>
+                <label><input type="radio" name="q3" value="d"> Four</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>4. What was the narrator's dream?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="a"> To become a businessman</label>
+                <label><input type="radio" name="q4" value="b"> To travel by sea</label>
+                <label><input type="radio" name="q4" value="c"> To stay in England</label>
+                <label><input type="radio" name="q4" value="d"> To be a teacher</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>5. Why was the narrator's father unhappy?</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="a"> He didn’t like the narrator</label>
+                <label><input type="radio" name="q5" value="b"> He didn’t want the narrator to travel by sea</label>
+                <label><input type="radio" name="q5" value="c"> He was poor</label>
+                <label><input type="radio" name="q5" value="d"> He was sick</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>6. What did the narrator's father say about travelling by sea?</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="a"> It was exciting</label>
+                <label><input type="radio" name="q6" value="b"> It was dangerous</label>
+                <label><input type="radio" name="q6" value="c"> It was boring</label>
+                <label><input type="radio" name="q6" value="d"> It was easy</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>7. How old was the narrator when his father spoke to him about his dream?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="a"> 16</label>
+                <label><input type="radio" name="q7" value="b"> 18</label>
+                <label><input type="radio" name="q7" value="c"> 20</label>
+                <label><input type="radio" name="q7" value="d"> 22</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>8. What did the narrator think about after his father’s words?</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="a"> Staying at home</label>
+                <label><input type="radio" name="q8" value="b"> Seeing new countries</label>
+                <label><input type="radio" name="q8" value="c"> Becoming a businessman</label>
+                <label><input type="radio" name="q8" value="d"> Studying more</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>9. Who did the narrator ask for help to convince his father?</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="a"> His brother</label>
+                <label><input type="radio" name="q9" value="b"> His sister</label>
+                <label><input type="radio" name="q9" value="c"> His mother</label>
+                <label><input type="radio" name="q9" value="d"> His friend</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>10. What did the narrator's mother think about travelling by sea?</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="a"> It was exciting</label>
+                <label><input type="radio" name="q10" value="b"> It was dangerous</label>
+                <label><input type="radio" name="q10" value="c"> It was fun</label>
+                <label><input type="radio" name="q10" value="d"> It was easy</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>11. Where did the narrator go one year later?</p>
+            <div class="options">
+                <label><input type="radio" name="q11" value="a"> London</label>
+                <label><input type="radio" name="q11" value="b"> Hull</label>
+                <label><input type="radio" name="q11" value="c"> Germany</label>
+                <label><input type="radio" name="q11" value="d"> France</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>12. What was the date when the narrator visited Hull?</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="a"> 1st of September</label>
+                <label><input type="radio" name="q12" value="b"> 1st of October</label>
+                <label><input type="radio" name="q12" value="c"> 1st of August</label>
+                <label><input type="radio" name="q12" value="d"> 1st of July</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>13. What year did the narrator visit Hull?</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="a"> 1650</label>
+                <label><input type="radio" name="q13" value="b"> 1651</label>
+                <label><input type="radio" name="q13" value="c"> 1652</label>
+                <label><input type="radio" name="q13" value="d"> 1653</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>14. Who invited the narrator to travel by sea?</p>
+            <div class="options">
+                <label><input type="radio" name="q14" value="a"> His father</label>
+                <label><input type="radio" name="q14" value="b"> His mother</label>
+                <label><input type="radio" name="q14" value="c"> His friend</label>
+                <label><input type="radio" name="q14" value="d"> His brother</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>15. Where was the narrator’s first sea journey to?</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="a"> Germany</label>
+                <label><input type="radio" name="q15" value="b"> France</label>
+                <label><input type="radio" name="q15" value="c"> London</label>
+                <label><input type="radio" name="q15" value="d"> Hull</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>16. What happened during the narrator’s first hour at sea?</p>
+            <div class="options">
+                <label><input type="radio" name="q16" value="a"> It was great</label>
+                <label><input type="radio" name="q16" value="b"> A storm came</label>
+                <label><input type="radio" name="q16" value="c"> He got sick</label>
+                <label><input type="radio" name="q16" value="d"> The ship sank</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>17. What did the narrator feel during the first storm?</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="a"> Excitement</label>
+                <label><input type="radio" name="q17" value="b"> Fear</label>
+                <label><input type="radio" name="q17" value="c"> Happiness</label>
+                <label><input type="radio" name="q17" value="d"> Boredom</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>18. What did the man on the ship call the storm?</p>
+            <div class="options">
+                <label><input type="radio" name="q18" value="a"> A big storm</label>
+                <label><input type="radio" name="q18" value="b"> A little wind</label>
+                <label><input type="radio" name="q18" value="c"> A hurricane</label>
+                <label><input type="radio" name="q18" value="d"> A tornado</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>19. What happened after the narrator drank with the man?</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="a"> He went home</label>
+                <label><input type="radio" name="q19" value="b"> He slept well</label>
+                <label><input type="radio" name="q19" value="c"> He got sick</label>
+                <label><input type="radio" name="q19" value="d"> He saw a new storm</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>20. How did the narrator feel during the second storm?</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="a"> Excited</label>
+                <label><input type="radio" name="q20" value="b"> Really scared</label>
+                <label><input type="radio" name="q20" value="c"> Happy</label>
+                <label><input type="radio" name="q20" value="d"> Tired</label>
+            </div>
+        </div>
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+    <div id="result"></div>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'b', q2: 'b', q3: 'c', q4: 'b', q5: 'b',
+                q6: 'b', q7: 'b', q8: 'b', q9: 'c', q10: 'b',
+                q11: 'b', q12: 'a', q13: 'b', q14: 'c', q15: 'c',
+                q16: 'a', q17: 'b', q18: 'b', q19: 'b', q20: 'b'
+            };
+            let score = 0;
+            for (let i = 1; i <= 20; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    const label = selected.parentElement;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        label.classList.add('correct');
+                        score++;
+                    } else {
+                        label.classList.add('incorrect');
+                        const correctOption = document.querySelector(`input[name="q${i}"][value="${correctAnswers[`q${i}`]}"]`);
+                        if (correctOption) {
+                            correctOption.parentElement.classList.add('correct');
+                        }
+                    }
+                }
+            }
+            const radios = document.querySelectorAll('input[type="radio"]');
+            radios.forEach(radio => {
+                radio.disabled = true;
+            });
+            document.querySelector('button').disabled = true;
+            document.getElementById('result').innerText = `You got ${score} out of 20 correct!`;
+        }
+    </script>
+</body>
+</html>
